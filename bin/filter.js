@@ -45,7 +45,7 @@ Promise.resolve()
             const pointFeature = pointFeatures[i];
             let result = true;
 
-            if (limit && i > limit) {
+            if (limit && filteredPointFeatures.length > limit) {
                 return _.assign({}, pointFeatures, {features: filteredPointFeatures});
             }
 
