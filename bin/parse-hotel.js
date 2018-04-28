@@ -6,10 +6,6 @@ const path = require('path');
 const _ = require('lodash');
 
 const argv = parseArgs(process.argv.slice(2));
-const inputFilePathString = argv._[0];
-const inputFilePath = path.parse(inputFilePathString);
-const outputFilePathString = argv._[1] ||
-    path.format(_.merge({}, inputFilePath, {base: null, ext: '.geojson'}));
 const defaultOptions = {
     delimiter: [';'],
     headers: [
@@ -29,6 +25,13 @@ const options = argv.options ?
     _.merge(defaultOptions, JSON.parse(argv.options)) :
     defaultOptions;
 const limit = argv.limit;
+
+const inputFilePathString = argv._[0];
+const inputFilePath = path.parse(inputFilePathString);
+const outputFilePathString = argv._[1] ||
+    path.format(_.merge({}, inputFilePath, {base: null, ext: '.geojson'}));
+const outputMinFilePathString = argv._[1] ||
+    path.format(_.merge({}, inputFilePath, {base: null, ext: '.min.geojson'}));
 const result = {
     type: 'FeatureCollection',
     features: []
@@ -69,11 +72,13 @@ Promise.resolve()
         }
     })
     .then((result) => {
-        const filePath = outputFilePathString;
-        const fileData = JSON.stringify(result, null, '\t');
-        fs.writeFile(filePath, fileData, {flag: 'w'}, (error) => {
+        const fileData = JSON.stringify(result, null, '  ');
+        const fileMinData = JSON.stringify(result);
+        const cb = (error) => {
             if (error) throw error;
-        });
+        };
+        fs.writeFile(outputFilePathString, fileData, {flag: 'w'}, cb);
+        fs.writeFile(outputMinFilePathString, fileMinData, {flag: 'w'}, cb);
     })
     .catch((error) => {
         if (error) throw error;
