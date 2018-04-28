@@ -58,7 +58,7 @@ Promise.resolve()
             }
         }
 
-        return _.assign({}, pointFeatures, {features: filteredPointFeatures});
+        return _.assign({}, data[0], {features: filteredPointFeatures});
     })
     .then((result) => {
         const filePath = outputFilePathString;
