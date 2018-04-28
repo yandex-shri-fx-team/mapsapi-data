@@ -1,0 +1,26 @@
+{
+  "name": "mapsapi-data",
+  "version": "0.0.0",
+  "description": "Data collection and tools for Yandex.Maps API.",
+  "keywords": [],
+  "bin": {
+    "parse": "bin/parse.js"
+  },
+  "dependencies": {
+    "csvtojson": "^1.1.9",
+    "eslint": "^4.19.1",
+    "eslint-config-loris": "^9.1.0",
+    "lodash": "^4.17.10",
+    "minimist": "^1.2.0"
+  },
+  "author": "",
+  "license": "MIT",
+  "homepage": "https://github.com/yandex-shri-fx-team/mapsapi-data#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yandex-shri-fx-team/mapsapi-data.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yandex-shri-fx-team/mapsapi-data/issues"
+  }
+}
