@@ -4,6 +4,7 @@
   "description": "Data collection and tools for Yandex.Maps API.",
   "keywords": [],
   "bin": {
+    "filter": "bin/filter.js",
     "parse": "bin/parse.js"
   },
   "dependencies": {
