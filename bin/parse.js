@@ -9,7 +9,7 @@ const argv = parseArgs(process.argv.slice(2));
 const inputFilePathString = argv._[0];
 const inputFilePath = path.parse(inputFilePathString);
 const outputFilePathString = argv._[1] ||
-    path.format(_.merge({}, inputFilePath, {base: null, ext: '.json'}));
+    path.format(_.merge({}, inputFilePath, {base: null, ext: '.geojson'}));
 const defaultOptions = {};
 const options = argv.options ?
     _.merge(defaultOptions, JSON.parse(argv.options)) :
