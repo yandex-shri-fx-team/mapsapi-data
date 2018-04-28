@@ -13,8 +13,8 @@ const outputFilePathString = argv._[1] ||
 const defaultOptions = {
     delimiter: [';'],
     headers: [
-        'geometry.coordinates.0',
         'geometry.coordinates.1',
+        'geometry.coordinates.0',
         'properties.openingYear',
         'properties.regionIdHash',
         'properties.idHash'
